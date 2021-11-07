@@ -9,16 +9,22 @@ function contar(){
     if(start == "" || end == ""){
         res.innerHTML = `<p>Impossível contar!</p>`
     }else{
-        res.innerHTML = ''
+        res.innerHTML = `Contando:<br>`
         if(!cont){
             window.alert('Passo invalido! Considerando PASSO 1.')
             cont = 1
         }
-        for(start; start <= end; cont){
-            res.innerHTML += ` ${start} >`
-            start += cont
+        if(start < end){
+            for(start; start <= end; start += cont){
+                res.innerHTML += ` ${start} \u{1F449}>`
+            }
+            res.innerHTML += '\u{1F3C1}'
+        }else{
+            for(start; start >= end; start -= cont){
+                res.innerHTML += ` ${start} \u{1F449}>`
+            }
+            res.innerHTML += '\u{1F3C1}'
         }
-        res.innerHTML += ' fim'
     }
     
 }
